@@ -1,0 +1,64 @@
+.main-content {
+
+}
+
+.title {
+    text-align: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(234, 234, 234);
+    border: none;
+    border-radius: 10px;
+}
+
+.input {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(209, 209, 209);
+    border: none;
+    border-radius: 10px;
+}
+
+#qr-code-benefits {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+#benefits-list li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+#benefits-list.show {
+    display: block;
+    max-height: fit-content;
+
+}
+
+
+
+
+
+

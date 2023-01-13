@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrofit QRCoder</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./qrcode.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /* Your CSS code here */
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        Astrofit QR 
+    </div>
+    
+    <div id="qrcode"></div>
+
+    <div class="main-content col">
+            <input id="link-input" type="text" placeholder="Type your link here" class="link-input input" onClick="this.select();">
+            <button id="generate-button" class="btn">Generate QR Code</button>
+            <button id="download-button" class="btn">Download QR Code</button>
+    </div>
+    
+
+    <div id="qr-code-benefits">
+        <h2>Benefits of Using QR Codes</h2>
+        <ul id="benefits-list">
+            <li>Quick and easy information sharing</li>
+            <li>Versatile and can be used in a variety of ways</li>
+            <li>Provides valuable data and insights</li>
+            <li>Cost-effective</li>
+        </ul>
+    </div>
+
+    <script>
+
+let qrBenefits = document.getElementById("qr-code-benefits");
+let benefitsList = document.getElementById("benefits-list");
+qrBenefits.addEventListener("click", function(){
+    benefitsList.classList.toggle("show");
+});
+        // Your JavaScript code here
+    var canvas = document.getElementById("qrcode");
+
+    document.getElementById("generate-button").addEventListener("click", function() {
+        canvas.innerHTML = "";
+        var link = document.getElementById("link-input").value;
+        var qrcode = new QRCode("qrcode", {
+            text: link,
+            width: 300,
+            height: 300,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    });
+    document.getElementById("download-button").addEventListener("click", function() {
+        var image = canvas.querySelector("img");
+        var link = document.createElement("a");
+        link.download = "my-code    .png";
+         link.href = image.src;
+        link.click();
+    });
+    </script>
+</body>
+</html>
